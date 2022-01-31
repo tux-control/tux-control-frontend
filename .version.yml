@@ -19,6 +19,6 @@ CHANGE_LOGS:
         'generator': 'version.change_log.Debian'
         'types': ['fix', 'feat']
         'arguments':
-            'project_name': 'granad-frontend'
+            'project_name': 'tux-control-frontend'
             'stability': 'unstable'
             'urgency': 'medium'
