@@ -25,7 +25,7 @@
                     <span class="p-ml-1 nav-user-name hidden-sm">{{currentUser.user.fullName}} <i class="mdi mdi-chevron-down"></i> </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" [ngClass]="userDropdownIsOpened ? 'show': ''">
-                    <a class="dropdown-item" [routerLink]="['/settings/account']"><fa-icon [icon]="faUser"></fa-icon>&nbsp;<span i18n>Profile settings</span></a>
+                    <a class="dropdown-item" [routerLink]="['/settings/account']"><fa-icon [icon]="faUser"></fa-icon>&nbsp;<span i18n>Account settings</span></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" (click)="handleLogOut($event)"><fa-icon [icon]="faSignOutAlt"></fa-icon>&nbsp;<span i18n>Log out</span></a>
                 </div>

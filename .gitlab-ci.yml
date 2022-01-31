@@ -10,7 +10,7 @@ build:dist:
     - pacman -Syu npm sudo git --noconfirm
     - useradd -m -G users -s /bin/bash package
     - sudo -H -u package npm i
-    - ./node_modules/@angular/cli/bin/ng.js build --prod=true --localize
+    - ./node_modules/@angular/cli/bin/ng.js build --configuration production --localize
     - mkdir 'dist/tux-control-frontend/config'
   tags:
     - archlinux

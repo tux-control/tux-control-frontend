@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MySocket } from '@app/core/services/socketio.service';
 import { ApiService } from './api.service';
 import { Plugin } from '../models/plugin';
-import { LazyLoadEvent } from 'primeng/api';
 import { ResponseError } from '../models/response-error';
 
 

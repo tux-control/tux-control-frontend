@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="translated">Domů</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/content-layout/content-layout.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4930506384627295710" datatype="html">
+        <source>Settings</source>
+        <target state="translated">Nastavení</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/content-layout/content-layout.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4555457172864212828" datatype="html">
+        <source>Users</source>
+        <target state="translated">Uživatelé</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/content-layout/content-layout.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="795890916060309463" datatype="html">
+        <source>Roles</source>
+        <target state="translated">Role</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/content-layout/content-layout.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+        <target state="translated">Odhlásit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layouts/header/header.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1683660825006641516" datatype="html">
+        <source>TuxControl</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3057976861991692453" datatype="html">
+        <source>Sign-in to continue.</source>
+        <target state="translated">Přihlaste se pro pokračování.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5495149747457702941" datatype="html">
+        <source>Enter email</source>
+        <target state="translated">Zadejte email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8602814243662345124" datatype="html">
+        <source>Email is required.</source>
+        <target state="translated">Email je povinný.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2005138472517883044" datatype="html">
+        <source>Enter valid email.</source>
+        <target state="translated">Zadejte validní email.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target state="translated">Heslo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="343410938576058057" datatype="html">
+        <source>Enter password</source>
+        <target state="translated">Zadejte heslo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3577237269587081090" datatype="html">
+        <source>Password is required.</source>
+        <target state="translated">Heslo je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1168397086420765932" datatype="html">
+        <source>Sign-in</source>
+        <target state="translated">Přihlásit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <target state="translated">Nástěnka</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/dashboard/pages/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="660786250691138420" datatype="html">
+        <source>Edit <x id="INTERPOLATION" equiv-text="{{plugin.name}}"/> <x id="INTERPOLATION_1" equiv-text="{{pluginConfigItem.name}}"/></source>
+        <target state="translated">Upravit <x id="INTERPOLATION" equiv-text="{{plugin.name}}"/> <x id="INTERPOLATION_1" equiv-text="{{pluginConfigItem.name}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6241099976868030117" datatype="html">
+        <source>Save config</source>
+        <target state="translated">Uloži konfiguraci</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/new/new.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1260099573097287890" datatype="html">
+        <source>Add <x id="INTERPOLATION" equiv-text="{{plugin.name}}"/></source>
+        <target state="translated">Přidat <x id="INTERPOLATION" equiv-text="{{plugin.name}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/new/new.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3514818585646162305" datatype="html">
+        <source>No record were found.</source>
+        <target state="translated">Nebyly nalezeny žádné záznamy.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/plugin/plugin.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3249513483374643425" datatype="html">
+        <source>Add</source>
+        <target state="translated">Přidat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/plugin/plugin.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3261253196124790061" datatype="html">
+        <source>Are you sure that you want to delete this item?</source>
+        <target state="translated">Jste si jisti že chcete smazat tuto položku?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/plugin/pages/plugin/plugin.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2639585338872912035" datatype="html">
+        <source>Edit role</source>
+        <target state="translated">Upravit roli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target state="translated">Jméno</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4444753420973870540" datatype="html">
+        <source>Name is required.</source>
+        <target state="translated">Jméno je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7314814725704332646" datatype="html">
+        <source>Permissions</source>
+        <target state="translated">Oprávění</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5542536657313652886" datatype="html">
+        <source>Permissions are required.</source>
+        <target state="translated">Oprávění jsou povinná.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3250750855803602375" datatype="html">
+        <source>Save role</source>
+        <target state="translated">Uložit roli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7001063874411041057" datatype="html">
+        <source>Role has been sucessfully saved.</source>
+        <target state="translated">Role byla úspěšně uložena.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7628224500487755611" datatype="html">
+        <source>Role modification failed.</source>
+        <target state="translated">Modifikace role selhala.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/edit/edit.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5088927389724166084" datatype="html">
+        <source>Create new role</source>
+        <target state="translated">Vytvořit novou roli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5252944713471831983" datatype="html">
+        <source>Permissions are required.</source>
+        <target state="translated">Oprávění jsou povinná.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7052298941540552256" datatype="html">
+        <source>Create role</source>
+        <target state="translated">Vytvořit roli</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8976021199905396021" datatype="html">
+        <source>Role addition failed.</source>
+        <target state="translated">Přidávání role selhalo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/new/new.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1234709746630139322" datatype="html">
+        <source>Confirmation</source>
+        <target state="translated">Potvrzení</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3072064537220103892" datatype="html">
+        <source>Role has been sucessfully deleted.</source>
+        <target state="translated">Role byla úspěšně smazána.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="938355404473318786" datatype="html">
+        <source>Role deletion failed.</source>
+        <target state="translated">Mazání role selhalo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1632462444876957232" datatype="html">
+        <source>Are you sure that you want to delete this role?</source>
+        <target state="translated">Jeste si jisti že chcete smazat tuto roli?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/role/pages/role/role.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4247400351982331798" datatype="html">
+        <source>Account settings</source>
+        <target state="translated">Nastavení účtu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5342432350421167093" datatype="html">
+        <source>First name</source>
+        <target state="translated">Jméno</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9198950544795967090" datatype="html">
+        <source>First name is required.</source>
+        <target state="translated">Jméno je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="314337262908278094" datatype="html">
+        <source>Last name is reqired.</source>
+        <target state="translated">Příjmení je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3730806897695737961" datatype="html">
+        <source>Email is reqired.</source>
+        <target state="translated">Email je povinný.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3592020559505041927" datatype="html">
+        <source>Please enter valid email.</source>
+        <target state="translated">Zadejte prosím validní emai.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target state="translated">Uložit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="171745424681750200" datatype="html">
+        <source>Password change</source>
+        <target state="translated">Změna hesla</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2273852141275299913" datatype="html">
+        <source>Enter current password</source>
+        <target state="translated">Zadejte aktuální heslo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3588415639242079458" datatype="html">
+        <source>New password</source>
+        <target state="translated">Nové heslo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7182242959675416946" datatype="html">
+        <source>Weak</source>
+        <target state="translated">Slabé</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6935133454449538756" datatype="html">
+        <source>Middle</source>
+        <target state="translated">Střední</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5537979240619532485" datatype="html">
+        <source>Strong</source>
+        <target state="translated">Silné</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2170214905466301783" datatype="html">
+        <source>Suggestions</source>
+        <target state="translated">Doporučení</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2231962944319163323" datatype="html">
+        <source>At least one lowercase</source>
+        <target state="translated">Alesponě jedno malé písmeno</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4463582994738750689" datatype="html">
+        <source>At least one uppercase</source>
+        <target state="translated">Alesponě jedno velké písmeno</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7187989685429941353" datatype="html">
+        <source>At least one numeric</source>
+        <target state="translated">Alespoň jedna číslice</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3469656934992856985" datatype="html">
+        <source>Minimum 8 characters</source>
+        <target state="translated">Minimálně 8 znaků</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1835782010587582775" datatype="html">
+        <source>New password is reqired.</source>
+        <target state="translated">Nové heslo je povinné</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5923282575657919941" datatype="html">
+        <source>Password has to be atleast of midle complexity, try to adding numbers or special characters to it.</source>
+        <target state="translated">Heslo musí být minimálně střední složitosti, zkuste přidat číslice nebo speciální znaky.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8631034221891290580" datatype="html">
+        <source>New password again</source>
+        <target state="translated">Nové heslo znovu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6533279709801733060" datatype="html">
+        <source>New password again is required.</source>
+        <target state="translated">Nové heslo je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3289032909288973885" datatype="html">
+        <source>Passwords does not match.</source>
+        <target state="translated">Hesla nesouhlasí.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6309828574111583895" datatype="html">
+        <source>Change password</source>
+        <target state="translated">Změnit heslo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.html</context>
+          <context context-type="linenumber">149</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9085129621252475255" datatype="html">
+        <source>Account info has been sucessfully saved.</source>
+        <target state="translated">Nastavení účtu bylo úspěšně uloženo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1692681315201519336" datatype="html">
+        <source>Password has been sucessfully saved.</source>
+        <target state="translated">Heslo bylo úspěšně uloženo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3148797337092209513" datatype="html">
+        <source>Failed to change password.</source>
+        <target state="translated">Změna hesla selhala.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/settings/pages/account/account.component.ts</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7187838764371214919" datatype="html">
+        <source>Edit user</source>
+        <target state="translated">Upravit uživatele</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3586674587150281199" datatype="html">
+        <source>Last name</source>
+        <target state="translated">Příjmení</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2953732570143548679" datatype="html">
+        <source>System user</source>
+        <target state="translated">Systémový uživatel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4923818758068459289" datatype="html">
+        <source>Password again is required.</source>
+        <target state="translated">Heslo znovu je povinné.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6422090685792316010" datatype="html">
+        <source>Role is reqired.</source>
+        <target state="translated">Role je povinná.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6546134987802539110" datatype="html">
+        <source>Save user</source>
+        <target state="translated">Uložit uživatele</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5743870868220622612" datatype="html">
+        <source>User has been sucessfully modified.</source>
+        <target state="translated">Uživatel byl úspěšně uložen.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7583661853878382760" datatype="html">
+        <source>User modification failed.</source>
+        <target state="translated">Ukládání uživatele selhalo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/edit/edit.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="460768807323872129" datatype="html">
+        <source>Create new user</source>
+        <target state="translated">Vytvořit nového uživatele</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7441103317091517170" datatype="html">
+        <source>Password again</source>
+        <target state="translated">Heslo znovu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1331333051424403061" datatype="html">
+        <source>Password again is reqired.</source>
+        <target state="translated">Heslo znovu je povinné</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8286337167859377104" datatype="html">
+        <source>Create user</source>
+        <target state="translated">Vytvořit uživatele</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5009074400080319871" datatype="html">
+        <source>User has been sucessfully added.</source>
+        <target state="translated">Uživatel byl úspěšně přidán.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6040525818167391927" datatype="html">
+        <source>User addition failed.</source>
+        <target state="translated">Přidávání uživatele selhalo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/new/new.component.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4145496584631696119" datatype="html">
+        <source>Role</source>
+        <target state="translated">Role</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7910076708497708162" datatype="html">
+        <source>Last login</source>
+        <target state="translated">Poslední přihlášení</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3668363899742741028" datatype="html">
+        <source>User has been sucessfully deleted.</source>
+        <target state="translated">Uživatel byl úspěšně smazán.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7461793903438656033" datatype="html">
+        <source>User deletion failed.</source>
+        <target state="translated">Mazání uživatele selhalo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7081244880758197965" datatype="html">
+        <source>Are you sure that you want to delete this user?</source>
+        <target state="translated">Jste si jisti že chcete smazat tohoto uživatele?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pages/user/user.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
