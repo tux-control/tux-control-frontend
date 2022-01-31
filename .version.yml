@@ -1,0 +1,24 @@
+GIT:
+    AUTO_COMMIT: true
+    AUTO_TAG: true
+    AUTO_PUSH: true # false=disabled, true=enabled, 'remote_name'=enabled and push to remote_name
+    COMMIT_MESSAGE: 'New version {version}'
+    COMMIT_PARSER: 'version.commit_parser.Sematic:Sematic'
+
+REGEXPS:
+    'package.json': \"version\"\s*:\s*\"(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)\"
+    'PKGBUILD': pkgver\s*=\s*(?P<version>.*)
+
+VERSION_FILES:
+    'package.json': 'package.json'
+    'archlinux/PKGBUILD': 'PKGBUILD'
+
+
+CHANGE_LOGS:
+    'debian/changelog':
+        'generator': 'version.change_log.Debian'
+        'types': ['fix', 'feat']
+        'arguments':
+            'project_name': 'granad-frontend'
+            'stability': 'unstable'
+            'urgency': 'medium'

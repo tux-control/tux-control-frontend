@@ -1,0 +1,45 @@
+
+<!-- Top Bar Start -->
+<div class="topbar">
+
+    <!-- LOGO -->
+    <div class="topbar-left">
+        <a [routerLink]="['/dashboard']" class="logo">
+            <span>
+                <img src="./assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+            </span>
+            <span>
+                <img src="./assets/images/logo.png" alt="logo-large" class="logo-lg">
+                <img src="./assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+            </span>
+        </a>
+    </div>
+    <!--end logo-->
+    <!-- Navbar -->
+    <nav class="navbar-custom">
+        <ul *ngIf="isLoggedIn$ | async as currentUser" class="list-unstyled topbar-nav float-right p-mb-0">
+            <li class="dropdown" [ngClass]="userDropdownIsOpened ? 'show': ''">
+                <a (click)="onUserDropdownClick($event)" class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
+                    <img class="rounded-circle" [alt]="currentUser.user.fullName" src="{{currentUser.user.emailHash|gravatar}}">
+                    <span class="p-ml-1 nav-user-name hidden-sm">{{currentUser.user.fullName}} <i class="mdi mdi-chevron-down"></i> </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" [ngClass]="userDropdownIsOpened ? 'show': ''">
+                    <a class="dropdown-item" [routerLink]="['/settings/account']"><fa-icon [icon]="faUser"></fa-icon>&nbsp;<span i18n>Profile settings</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" (click)="handleLogOut($event)"><fa-icon [icon]="faSignOutAlt"></fa-icon>&nbsp;<span i18n>Log out</span></a>
+                </div>
+            </li>
+        </ul><!--end topbar-nav-->
+
+        <ul class="list-unstyled topbar-nav p-mb-0">
+            <li>
+                <button class="button-menu-mobile nav-link waves-effect waves-light" (click)="onMenuToggleClick()">
+                    <fa-icon [icon]="faBars"></fa-icon>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- end navbar-->
+</div>
+<!-- Top Bar End -->

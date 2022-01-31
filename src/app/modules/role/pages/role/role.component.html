@@ -1,0 +1,70 @@
+<!-- begin:: Content -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title" i18n>Roles</h4>
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+</div>
+<!-- end page title end breadcrumb -->
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <p-table #dt sortField="name" [sortOrder]="1" [columns]="cols" [value]="roles" [lazy]="true" (onLazyLoad)="loadRolesLazy($event)" [totalRecords]="totalRecords" [loading]="gridLoading" [paginator]="true" [rows]="10" [responsive]="true" styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines" [autoLayout]="true" stateStorage="local" stateKey="role-table-local">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+              <th style="width:8em"></th>
+            </tr>
+            <tr>
+              <th *ngFor="let col of columns" [ngSwitch]="col.field" class="p-fluid">
+                <input *ngSwitchCase="'name'" pInputText type="text" (input)="$any(dt).filter($any($event).target.value, col.field, col.filterMatchMode)" [value]="$any(dt).filters[col.field]?.value">
+              </th>
+              <th style="width:4em"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                <div *ngSwitchCase="'created'" class="text-center">
+                  {{rowData[col.field]|date: 'H:mm:ss d.M.y'}}
+                </div>
+                <div *ngSwitchCase="'updated'" class="text-center">
+                  {{rowData[col.field]|date: 'H:mm:ss d.M.y'}}
+                </div>
+                <div *ngSwitchDefault>{{rowData[col.field]}}</div>
+              </td>
+              <td class="text-center text-nowrap">
+                <button pButton pRipple icon="pi pi-pencil" [routerLink]="['/role/edit/', rowData.id]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteRoleWithButton(rowData)"></button>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="cols.length + 1" i18n>No record were found.</td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary" let-rowData>
+            <div class="text-left">
+              <button pButton pRipple routerLink="/role/new" icon="pi pi-plus" i18n-label label="Add" class="p-button-success"></button>
+            </div>
+          </ng-template>
+        </p-table>
+        <p-confirmDialog i18n-header header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+      <!--end card-body-->
+    </div>
+    <!--end card-->
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->

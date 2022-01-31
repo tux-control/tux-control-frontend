@@ -1,0 +1,32 @@
+map $http_accept_language $accept_language {
+	~*^en en;
+	~*^cs cs;
+}
+
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /usr/lib/tux-frontend;
+
+	index index.html;
+
+	server_name tux-frontend;
+
+
+	if ($accept_language ~ "^$") {
+		set $accept_language "en";
+	}
+
+	rewrite ^/$ /$accept_language permanent;
+
+	location ~ ^/(cs|en) {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		# try_files $uri $uri/ /index.html;
+		try_files $uri /$1/index.html?$args;
+		add_header Cache-Control "no-store, no-cache, must-revalidate";
+	}
+
+}

@@ -1,0 +1,68 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-title-box">
+			<h4 class="page-title">{{plugin.name}}</h4>
+		</div>
+		<!--end page-title-box-->
+	</div>
+	<!--end col-->
+</div>
+<!-- end page title end breadcrumb -->
+
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+  
+          <p-table #dt [columns]="cols" [value]="pluginConfigItems" [lazy]="true" (onLazyLoad)="loadPluginConfigItemsLazy($event)" [totalRecords]="totalRecords" [loading]="gridLoading" [paginator]="true" [rows]="10" [responsive]="true" [lazyLoadOnInit]="false" styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines" [autoLayout]="true" stateStorage="local" [stateKey]="stateKey">
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="(col.isSortable ? col.field : undefined)">
+                  {{col.header}}
+                  <p-sortIcon *ngIf="col.isSortable" [field]="col.field"></p-sortIcon>
+                </th>
+                <th style="width:8em"></th>
+              </tr>
+              <tr>
+                <th *ngFor="let col of columns" class="p-fluid">
+                  <input *ngIf="col.filterMatchMode" pInputText type="text" (input)="dt.filter($any($event).target?.value, col.field, col.filterMatchMode)" [value]="$any(dt).filters[col.field] ? $any(dt).filters[col.field].value : ''">
+                </th>
+                <th style="width:4em"></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                <td *ngFor="let col of columns" [ngSwitch]="col.columnFormat">
+                  <div *ngSwitchCase="'boolean'" class="text-center">
+                    <p-tag [value]="rowData[col.field]? 'Yes': 'No'" [severity]="rowData[col.field]? 'success': 'danger'"></p-tag>
+                  </div>
+                  <div *ngSwitchDefault>{{rowData[col.field]}}</div>
+                </td>
+                <td class="text-center text-nowrap">
+                  <button *ngIf="rowData.isEditable" pButton pRipple icon="pi pi-pencil" [routerLink]="['/plugin', plugin.key, 'edit', rowData.key]"></button>
+                  <button *ngIf="rowData.isDeletable" pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deletePluginConfigItemWithButton(rowData)"></button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="cols.length + 1" i18n>No record were found.</td>
+              </tr>
+            </ng-template>
+            <ng-template *ngIf="plugin.hasOnNew" pTemplate="summary" let-rowData>
+              <div class="text-left">
+                <button *ngIf="plugin.hasOnNew" pButton pRipple [routerLink]="['/plugin', plugin.key, 'add']" icon="pi pi-plus" i18n-label label="Add" class="p-button-success"></button>
+              </div>
+            </ng-template>
+          </p-table>
+          <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        </div>
+        <!--end card-body-->
+      </div>
+      <!--end card-->
+    </div>
+    <!--end col-->
+  </div>
+  <!--end row-->
+  

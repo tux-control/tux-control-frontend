@@ -1,0 +1,75 @@
+<!-- Log In page -->
+<div class="row vh-100 ">
+  <div class="col-12 align-self-center">
+      <div class="auth-page">
+          <div class="card auth-card shadow-lg">
+              <div class="card-body">
+                  <div class="px-3">
+                      <div class="auth-logo-box">
+                          <a href="/" class="logo logo-admin"><img src="./assets/images/logo-sm.png" height="55"
+                                  alt="logo" class="auth-logo"></a>
+                      </div>
+                      <!--end auth-logo-box-->
+
+                      <div class="text-center auth-logo-text">
+                          <h4 class="mt-0 mb-3 mt-5" i18n>TuxControl</h4>
+                          <p class="text-muted mb-0" i18n>Sign-in to continue.</p>
+                      </div>
+                      <!--end auth-logo-text-->
+
+
+                      <form class="form-horizontal auth-form my-4" [formGroup]="loginForm"
+                          (ngSubmit)="onSubmitLogin()">
+
+                          <div class="form-group">
+                              <label for="email">Email</label>
+                              <div class="input-group mb-3" [ngClass]="{ 'is-invalid': !fl.email.untouched && fl.email.errors }">
+                                  <span class="auth-form-icon">
+                                      <fa-icon [icon]="faUser"></fa-icon>
+                                  </span>
+                                  <input class="form-control" pInputText email type="text" formControlName="email" i18n-placeholder placeholder="Enter email" autocomplete="email">
+                              </div>
+                              <div *ngIf="fl.email.errors" class="invalid-feedback">
+                                  <div *ngIf="!fl.email.untouched && fl.email.errors.required" i18n>Email is required.</div>
+                              </div>
+                              <div class="invalid-feedback" *ngIf="fl.email.value !== '' && !fl.email.untouched && fl.email.invalid" i18n>Enter valid email.</div>
+                          </div>
+                          <!--end form-group-->
+
+                          <div class="form-group">
+                              <label for="userpassword" i18n>Password</label>
+                              <div class="input-group mb-3" [ngClass]="{ 'is-invalid': !fl.password.untouched && fl.password.errors }">
+                                  <span class="auth-form-icon">
+                                      <fa-icon [icon]="faLock"></fa-icon>
+                                  </span>
+                                  <input pInputText type="password" formControlName="password" class="form-control" id="userpassword" i18n-placeholder placeholder="Enter password" autocomplete="current-password">
+                              </div>
+                              <div *ngIf="fl.password.errors" class="invalid-feedback">
+                                  <div *ngIf="!fl.password.untouched && fl.password.errors.required" i18n>Password is required.</div>
+                              </div>
+                          </div>
+                          <!--end form-group-->
+
+                          <div class="form-group mb-0 row">
+                              <div class="col-12 mt-2 p-fluid">
+                                  <button pButton pRipple icon="pi pi-sign-in" iconPos="right" type="submit" i18n-label label="Sign-in" [disabled]="loginForm.invalid" [loading]="loadingLogin" class="p-button-rounded"></button>
+                              </div>
+                              <!--end col-->
+                          </div>
+                          <!--end form-group-->
+                      </form>
+                      <!--end form-->
+                  </div>
+                  <!--end /div-->
+
+              </div>
+              <!--end card-body-->
+          </div>
+          <!--end card-->
+      </div>
+      <!--end auth-page-->
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->
+<!-- End Log In page -->

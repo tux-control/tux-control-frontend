@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-title-box">
+      <h4 class="page-title" i18n>Edit user</h4>
+    </div>
+    <!--end page-title-box-->
+  </div>
+  <!--end col-->
+</div>
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label class="col-form-label col-lg-4 col-sm-12"><span i18n>First name</span> *</label>
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input class="form-control" pInputText type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': !rf.firstName.untouched && rf.firstName.errors }">
+              <div *ngIf="rf.firstName.errors" class="invalid-feedback">
+                <div *ngIf="!rf.firstName.untouched && rf.firstName.errors.required" i18n>First name is required.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-lg-4 col-sm-12"><span i18n>Last name</span> *</label>
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input class="form-control" pInputText type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': !rf.lastName.untouched && rf.lastName.errors }">
+              <div *ngIf="rf.lastName.errors" class="invalid-feedback">
+                <div *ngIf="!rf.lastName.untouched && rf.lastName.errors.required" i18n>Last name is reqired.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-lg-4 col-sm-12"><span i18n>System user</span> *</label>
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input class="form-control" pInputText type="text" formControlName="systemUser" [ngClass]="{ 'is-invalid': !rf.systemUser.untouched && rf.systemUser.errors }">
+              <div *ngIf="rf.systemUser.errors" class="invalid-feedback">
+                <div *ngIf="!rf.systemUser.untouched && rf.systemUser.errors.required">System user is reqired.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-form-label col-lg-4 col-sm-12">Email *</label>
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input class="form-control" pInputText type="email" formControlName="email" email [ngClass]="{ 'is-invalid': !rf.email.untouched && rf.email.errors }">
+              <div *ngIf="rf.email.errors" class="invalid-feedback">
+                <div *ngIf="!rf.email.untouched && rf.email.errors.required" i18n>Email is reqired.</div>
+              </div>
+              <div class="invalid-feedback" *ngIf="rf.email.value !== '' && !rf.email.untouched && rf.email.invalid">
+                <span i18n>Please enter valid email.</span>
+              </div>
+            </div>
+          </div>
+          
+          <div [formGroup]="passwordFormGroup">
+            <div class="form-group row">
+              <label class="col-form-label col-lg-4 col-sm-12" i18n>Password</label>
+              <div class="col-lg-4 col-md-9 col-sm-12 p-fluid">
+                <p-password inputStyleClass="form-control p-password-input {{(!pf.password.untouched && pf.password.errors ? 'is-invalid' : '')}}" placeholder="Enter password" i18n-weakLabel weakLabel="Weak" i18n-mediumLabel mediumLabel="Middle" i18n-strongLabel strongLabel="Strong" formControlName="password" autocomplete="new-password">
+                  <ng-template pTemplate="footer">
+                    <p-divider></p-divider>
+                    <p class="p-mt-2" i18n>Suggestions</p>
+                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                      <li i18n>At least one lowercase</li>
+                      <li i18n>At least one uppercase</li>
+                      <li i18n>At least one numeric</li>
+                      <li i18n>Minimum 8 characters</li>
+                    </ul>
+                  </ng-template>
+                </p-password>
+                <span [ngClass]="{ 'is-invalid': !pf.password.untouched && pf.password.errors }"></span>
+                <div *ngIf="pf.password.errors" class="invalid-feedback">
+                  <div *ngIf="!pf.password.untouched && pf.password.errors.required" i18n>Password is required.</div>
+                  <div *ngIf="pf.password.value !== '' && !pf.password.untouched && pf.password.errors.invalidPasswordLevel">
+                    <span i18n>Password has to be atleast of midle complexity, try to adding numbers or special characters to it.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-form-label col-lg-4 col-sm-12">Password again</label>
+              <div class="col-lg-4 col-md-9 col-sm-12 p-fluid">
+                <p-password inputStyleClass="form-control p-password-input {{((!pf.repeatPassword.untouched && pf.repeatPassword.errors || pf.repeatPassword.value !== '' && !pf.repeatPassword.untouched && passwordFormGroup.hasError('notSame'))? 'is-invalid' : '')}}" placeholder="Enter password" i18n-weakLabel weakLabel="Weak" i18n-mediumLabel mediumLabel="Middle" i18n-strongLabel strongLabel="Strong" formControlName="repeatPassword" autocomplete="new-password">
+                  <ng-template pTemplate="footer">
+                    <p-divider></p-divider>
+                    <p class="p-mt-2" i18n>Suggestions</p>
+                    <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+                      <li i18n>At least one lowercase</li>
+                      <li i18n>At least one uppercase</li>
+                      <li i18n>At least one numeric</li>
+                      <li i18n>Minimum 8 characters</li>
+                    </ul>
+                  </ng-template>
+                </p-password>
+                <span [ngClass]="{ 'is-invalid': (!pf.repeatPassword.untouched && pf.repeatPassword.errors || pf.repeatPassword.value !== '' && !pf.repeatPassword.untouched && passwordFormGroup.hasError('notSame')) }"></span>
+                <div *ngIf="pf.repeatPassword.errors" class="invalid-feedback">
+                  <div *ngIf="!pf.repeatPassword.untouched && pf.repeatPassword.errors.required" i18n>Password again is required.</div>
+                  <div *ngIf="pf.repeatPassword.value !== '' && !pf.repeatPassword.untouched && pf.repeatPassword.errors.invalidPasswordLevel">
+                    <span i18n>Password has to be atleast of midle complexity, try to adding numbers or special characters to it.</span>
+                  </div>
+                </div>
+                <div class="invalid-feedback" *ngIf="pf.repeatPassword.value !== '' && !pf.repeatPassword.untouched && passwordFormGroup.hasError('notSame')">
+                  <span i18n>Passwords does not match.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-form-label col-lg-4 col-sm-12"><span i18n>Roles</span> *</label>
+            <div class="col-lg-4 col-md-9 col-sm-12 p-fluid">
+              <p-listbox [options]="roles" formControlName="roles" [metaKeySelection]="false" [checkbox]="true" [filter]="true" [multiple]="true" optionLabel="name" [ngClass]="{ 'is-invalid': !rf.roles.untouched && rf.roles.errors }" [listStyle]="{'max-height':'500px'}"></p-listbox>
+              <div *ngIf="rf.roles.errors" class="invalid-feedback">
+                <div *ngIf="!rf.roles.untouched && rf.roles.errors.required" i18n>Role is reqired.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <button pButton pRipple i18n-label label="Save user" type="submit" [disabled]="editUserForm.invalid" [loading]="loading"></button>
+            </div>
+          </div>
+        </form>
+        <!--end::Form-->
+      </div>
+      <!--end card-body-->
+    </div>
+    <!--end card-->
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->

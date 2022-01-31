@@ -1,0 +1,24 @@
+pkgname=tux-frontend
+pkgver=0.0.1
+pkgdesc="Tux Frontend."
+pkgrel=1
+arch=('any')
+backup=('etc/tux-frontend/config.json')
+license=('GPL-3')
+url='https://gitlab.salamek.cz/sadam/tux-frontend'
+install=tux-frontend.install
+depends=(
+    'nginx'
+)
+
+prepare() {
+  mkdir -p "${srcdir}/${pkgname}"
+  mkdir -p "${srcdir}/${pkgname}/usr/lib/tux-frontend"
+  cp -R "${srcdir}/../../etc" "${srcdir}/${pkgname}"
+  cp -R "${srcdir}/../../dist/tux-frontend/." "${srcdir}/${pkgname}/usr/lib/tux-frontend"
+  cp -R "${srcdir}/../../README.md" "${srcdir}/${pkgname}"
+}
+
+package() {
+  cp -R "${srcdir}/${pkgname}/." "${pkgdir}"
+}

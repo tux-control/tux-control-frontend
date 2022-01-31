@@ -1,0 +1,4 @@
+{
+  "socketioEndpoint": "http://CURRENT_HOSTNAME:5000/",
+  "apiEndpoint": "http://CURRENT_HOSTNAME:5000/"
+}

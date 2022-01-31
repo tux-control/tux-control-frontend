@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-sm-12">
+	  <div class="page-title-box">
+		<h4 class="page-title" i18n>Add {{plugin.name}}</h4>
+	  </div>
+	  <!--end page-title-box-->
+	</div>
+	<!--end col-->
+  </div>
+  <!-- end page title end breadcrumb -->
+  
+  <div class="row">
+	<div class="col-12">
+	  <div class="card">
+		<div class="card-body">
+  
+		  <form [formGroup]="pluginItemForm" (ngSubmit)="onSubmit()">
+			<div formArrayName="pluginConfigs" *ngFor="let pluginConfigsControl of getPluginConfigsControls(); let i = index; let last = last; let first = first;">
+				<div [formGroupName]="i">
+					<div class="form-group row" >
+					  <label class="col-form-label col-lg-3 col-sm-12">{{pluginConfigsControl.get('pluginConfigOption')?.value.name}}
+						<ng-container [ngSwitch]="pluginConfigsControl.get('pluginConfigOption')?.value.control.htmlType">
+							<b *ngSwitchCase="'slider'">{{pluginConfigsControl.get('value')?.value}}</b>
+						</ng-container>
+					  </label>
+					  <div class="col-lg-6 col-md-9 col-sm-12 p-fluid">
+						<ng-container [ngSwitch]="pluginConfigsControl.get('pluginConfigOption')?.value.control.htmlType">
+						  <p-slider *ngSwitchCase="'slider'" [step]="pluginConfigsControl.get('pluginConfigOption')?.value.control.step" [min]="pluginConfigsControl.get('pluginConfigOption')?.value.control.min" [max]="pluginConfigsControl.get('pluginConfigOption')?.value.control.max" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-slider>
+						  <p-checkbox *ngSwitchCase="'checkbox'" [binary]="true" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-checkbox>
+						  <p-multiSelect *ngSwitchCase="'multiselect'" [options]="pluginConfigsControl.get('pluginConfigOption')?.value.control.options" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-multiSelect>
+						  <p-dropdown *ngSwitchCase="'select'" [options]="pluginConfigsControl.get('pluginConfigOption')?.value.control.options" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-dropdown>
+						  <p-chips *ngSwitchCase="'chips'" formControlName="value" separator="," [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-chips>
+						  <input *ngSwitchCase="'number'" class="form-control" pInputText type="number" [step]="pluginConfigsControl.get('pluginConfigOption')?.value.control.step" [min]="pluginConfigsControl.get('pluginConfigOption')?.value.control.min" [max]="pluginConfigsControl.get('installConfigOption')?.value.control.max" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }">
+						  <input *ngSwitchCase="'url'" class="form-control" pInputText type="url" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }">
+						  <input *ngSwitchCase="'email'" class="form-control" pInputText type="email" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }">
+						  <input *ngSwitchCase="'password'" class="form-control" pPassword [showPassword]="true" type="password" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }">
+						  <input *ngSwitchDefault class="form-control" pInputText type="text" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }">
+						</ng-container>
+	  
+						<div *ngIf="pluginConfigsControl.get('value')?.errors && !pluginConfigsControl.get('value')?.untouched" class="invalid-feedback">
+						  <div *ngIf="pluginConfigsControl.get('value')?.errors?.required">{{pluginConfigsControl.get('pluginConfigOption')?.value.name}} is required</div>
+						  <div *ngIf="pluginConfigsControl.get('value')?.errors?.pattern">{{pluginConfigsControl.get('pluginConfigOption')?.value.control.validationRegexErrorMessage}}</div>
+						</div>
+						<span *ngIf="pluginConfigsControl.get('pluginConfigOption')?.value.description" class="form-text text-muted">{{pluginConfigsControl.get('pluginConfigOption')?.value.description}}</span>
+					  </div>
+					</div>
+				</div>
+			  </div>
+	  
+			<div class="row">
+			  <div class="col-lg-12 text-center">
+				<button pButton pRipple i18n-label label="Save config" type="submit" [disabled]="pluginItemForm.invalid" [loading]="loading"></button>
+			  </div>
+			</div>
+		  </form>
+		  <!--end::Form-->
+		</div>
+		<!--end card-body-->
+	  </div>
+	  <!--end card-->
+	</div>
+	<!--end col-->
+  </div>
+  <!--end row-->
+  

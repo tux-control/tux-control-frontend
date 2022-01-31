@@ -1,0 +1,161 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-title-box">
+			<h4 class="page-title" i18n>Account settings</h4>
+		</div>
+		<!--end page-title-box-->
+	</div>
+	<!--end col-->
+</div>
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
+
+				<form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+					<div class="form-group row">
+						<label class="col-form-label col-lg-4 col-sm-12"><span i18n>First name</span> *</label>
+						<div class="col-lg-4 col-md-9 col-sm-12">
+						  <input class="form-control" pInputText type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': !af.firstName.untouched && af.firstName.errors }">
+						  <div *ngIf="af.firstName.errors" class="invalid-feedback">
+							<div *ngIf="!af.firstName.untouched && af.firstName.errors.required" i18n>First name is required.</div>
+						  </div>
+						</div>
+					  </div>
+					  <div class="form-group row">
+						<label class="col-form-label col-lg-4 col-sm-12"><span>Last name</span> *</label>
+						<div class="col-lg-4 col-md-9 col-sm-12">
+						  <input class="form-control" pInputText type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': !af.lastName.untouched && af.lastName.errors }">
+						  <div *ngIf="af.lastName.errors" class="invalid-feedback">
+							<div *ngIf="!af.lastName.untouched && af.lastName.errors.required" i18n>Last name is reqired.</div>
+						  </div>
+						</div>
+					  </div>
+  
+					<div class="form-group row">
+					  <label class="col-form-label col-lg-4 col-sm-12">Email *</label>
+					  <div class="col-lg-4 col-md-9 col-sm-12">
+						<input class="form-control" pInputText type="email" formControlName="email" email [ngClass]="{ 'is-invalid': !af.email.untouched && af.email.errors }">
+						<div *ngIf="af.email.errors" class="invalid-feedback">
+						  <div *ngIf="!af.email.untouched && af.email.errors.required" i18n>Email is reqired.</div>
+						</div>
+						<div class="invalid-feedback" *ngIf="af.email.value !== '' && !af.email.untouched && af.email.invalid">
+						  <span i18n>Please enter valid email.</span>
+						</div>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="col-lg-12">
+						<button pButton class="p-d-block p-mx-auto" type="submit" i18n-label label="Save" [disabled]="accountForm.invalid" [loading]="loading"></button>
+					  </div>
+					</div>
+				  </form>
+				  <!--end::Form-->
+			</div>
+			<!--end card-body-->
+		</div>
+		<!--end card-->
+	</div>
+	<!--end col-->
+</div>
+<!--end row-->
+
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-title-box">
+			<h4 class="page-title" i18n>Password change</h4>
+		</div>
+		<!--end page-title-box-->
+	</div>
+	<!--end col-->
+</div>
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
+
+
+				<form [formGroup]="passwordForm" (ngSubmit)="onPasswordFormSubmit()">
+					<div class="form-group row">
+						<label class="col-form-label col-lg-4 col-sm-12" i18n>Password</label>
+						<div class="col-lg-4 col-md-9 col-sm-12">
+							<input class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': !pf.password.untouched && pf.password.errors }" autocomplete="current-password" i18n-placeholder placeholder="Enter current password">
+							<div *ngIf="pf.password.errors" class="invalid-feedback">
+								<div *ngIf="!pf.password.untouched && pf.password.errors.required" i18n>Password is required.</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-lg-4 col-sm-12" i18n>New password</label>
+						<div class="col-lg-4 col-md-9 col-sm-12 p-fluid" >
+							<p-password inputStyleClass="form-control p-password-input {{(!pf.newPassword.untouched && pf.newPassword.errors ? 'is-invalid' : '')}}" i18n-placeholder placeholder="Enter password" i18n-weakLabel weakLabel="Weak" i18n-mediumLabel mediumLabel="Middle" i18n-strongLabel strongLabel="Strong" formControlName="newPassword" autocomplete="new-password">
+								<ng-template pTemplate="footer">
+									<p-divider></p-divider>
+									<p class="p-mt-2" i18n>Suggestions</p>
+									<ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+										<li i18n>At least one lowercase</li>
+										<li i18n>At least one uppercase</li>
+										<li i18n>At least one numeric</li>
+										<li i18n>Minimum 8 characters</li>
+									</ul>
+								</ng-template>
+							</p-password>
+							<span [ngClass]="{ 'is-invalid': !pf.newPassword.untouched && pf.newPassword.errors }"></span>
+							<div *ngIf="pf.newPassword.errors" class="invalid-feedback">
+								<div *ngIf="!pf.newPassword.untouched && pf.newPassword.errors.required" i18n>New password is reqired.</div>
+								<div *ngIf="pf.newPassword.value !== '' && !pf.newPassword.untouched && pf.newPassword.errors.invalidPasswordLevel">
+									<span i18n>Password has to be atleast of midle complexity, try to adding numbers or special characters to it.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-lg-4 col-sm-12" i18n>New password again</label>
+						<div class="col-lg-4 col-md-9 col-sm-12 p-fluid">
+							<p-password inputStyleClass="form-control p-password-input {{(!pf.repeatNewPassword.untouched && pf.repeatNewPassword.errors ? 'is-invalid' : '')}}" i18n-placeholder placeholder="Enter password" i18n-weakLabel weakLabel="Weak" i18n-mediumLabel mediumLabel="Middle" i18n-strongLabel strongLabel="Strong" formControlName="repeatNewPassword" autocomplete="new-password">
+								<ng-template pTemplate="footer">
+									<p-divider></p-divider>
+									<p class="p-mt-2" i18n>Suggestions</p>
+									<ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+										<li i18n>At least one lowercase</li>
+										<li i18n>At least one uppercase</li>
+										<li i18n>At least one numeric</li>
+										<li i18n>Minimum 8 characters</li>
+									</ul>
+								</ng-template>
+							</p-password>
+							<span [ngClass]="{ 'is-invalid': !pf.repeatNewPassword.untouched && pf.repeatNewPassword.errors }"></span>
+							<div *ngIf="pf.repeatNewPassword.errors" class="invalid-feedback">
+								<div *ngIf="!pf.repeatNewPassword.untouched && pf.repeatNewPassword.errors.required" i18n>New password again is required.</div>
+								<div *ngIf="pf.repeatNewPassword.value !== '' && !pf.repeatNewPassword.untouched && pf.repeatNewPassword.errors.invalidPasswordLevel">
+									<span i18n>Password has to be atleast of midle complexity, try to adding numbers or special characters to it.</span>
+								</div>
+							</div>
+							<div class="invalid-feedback" *ngIf="pf.repeatNewPassword.value !== '' && !pf.repeatNewPassword.untouched && passwordForm.hasError('notSame')">
+								<span i18n>Passwords does not match.</span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-lg-12">
+							<button pButton class="p-d-block p-mx-auto" type="submit" i18n-label label="Change password" [disabled]="passwordForm.invalid" [loading]="passwordFormLoading"></button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<!--end card-body-->
+		</div>
+		<!--end card-->
+	</div>
+	<!--end col-->
+</div>
+<!--end row-->

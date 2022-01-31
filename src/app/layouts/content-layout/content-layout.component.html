@@ -1,0 +1,46 @@
+<div class="sidenav-fixed" [ngClass]="sideBarIsOpened ? '' : 'enlarge-menu'">
+
+  <app-header (toggleMenuClick)="setSidebarState(null)"></app-header>
+  
+  <div class="page-wrapper">
+      <!-- Left Sidenav -->
+      <div *ngIf="isLoggedIn$ | async as currentUser" class="left-sidenav">
+          <ul class="metismenu left-sidenav-menu">
+              <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
+                  <a [routerLink]="['/dashboard']"><i><fa-icon [icon]="faHome"></fa-icon></i><span i18n>Home</span></a>
+              </li>
+              <li *ngFor="let menuItem of menuItems" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
+                  <a [routerLink]="menuItem.routerLink"><i><fa-icon *ngIf="menuItem.icon" [icon]="iconStringToIcon(menuItem.icon)"></fa-icon></i><span i18n>{{menuItem.label}}</span></a>
+              </li>
+              <li *ngIf="['user.edit', 'role.edit'] | hasPermission: currentUser" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
+                  <a href="#" (click)="$event.preventDefault();"><i><fa-icon [icon]="faCog"></fa-icon></i><span i18n>Settings</span></a>
+                  <ul>
+                      <li *ngIf="['user.edit'] | hasPermission: currentUser" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
+                          <a [routerLink]="['/user']"><i><fa-icon [icon]="faUsers"></fa-icon></i><span i18n>Users</span></a>
+                      </li>
+                      <li *ngIf="['role.edit'] | hasPermission: currentUser" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
+                          <a [routerLink]="['/role']"><i><fa-icon [icon]="faUsers"></fa-icon></i><span i18n>Roles</span></a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+      <!-- end left-sidenav-->
+  
+      <!-- Page Content-->
+      <div class="page-content">
+  
+          <div class="container-fluid">
+              <router-outlet></router-outlet>
+          </div><!-- container -->
+  
+          <footer class="footer text-center text-sm-left">
+              <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <fa-icon [icon]="faHeart"></fa-icon> Adam Schubert</span>
+          </footer><!--end footer-->
+      </div>
+      <!-- end page content -->
+  </div>
+  <!-- end page-wrapper -->
+  
+  </div>
+  

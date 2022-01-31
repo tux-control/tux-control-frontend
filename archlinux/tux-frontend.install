@@ -1,0 +1,40 @@
+## arg 1:  the new package version
+pre_install() {
+        :
+}
+
+## arg 1:  the new package version
+post_install() {
+        ln -sf /etc/tux-frontend/config.json /usr/lib/tux-frontend/config/config.production.json
+
+        if ! systemctl is-enabled --quiet nginx; then
+            systemctl enable nginx
+        fi
+
+        if ! systemctl is-active --quiet nginx; then
+            systemctl restart nginx
+        fi
+}
+
+## arg 1:  the new package version
+## arg 2:  the old package version
+pre_upgrade() {
+        :
+}
+
+## arg 1:  the new package version
+## arg 2:  the old package version
+post_upgrade() {
+        ln -sf /etc/tux-frontend/config.json /usr/lib/tux-frontend/config/config.production.json
+        systemctl restart nginx
+}
+
+## arg 1:  the old package version
+pre_remove() {
+        :
+}
+
+## arg 1:  the old package version
+post_remove() {
+        :
+}

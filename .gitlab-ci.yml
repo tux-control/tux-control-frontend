@@ -1,0 +1,61 @@
+stages:
+  - build
+  - package
+  - packagetest
+  - deploy
+
+build:dist:
+  stage: build
+  script:
+    - pacman -Syu npm sudo git --noconfirm
+    - useradd -m -G users -s /bin/bash package
+    - sudo -H -u package npm i
+    - ./node_modules/@angular/cli/bin/ng build --prod=true --localize
+    - mkdir 'dist/tux-control-frontend/config'
+  tags:
+    - archlinux
+
+  artifacts:
+    paths:
+      - dist/*
+    expire_in: 1d
+
+
+package:debian:
+  stage: package
+  script:
+    - apt-get update -qy
+    - apt-get install -y dh-make
+    - dh_link etc/tux-control-frontend/config.json dist/tux-control-frontend/config/config.production.json
+    - dpkg-buildpackage
+    - mkdir build
+    - mv ../tux-control-frontend*.deb build/
+  dependencies:
+    - build:dist
+  tags:
+    - debian
+  artifacts:
+    paths:
+      - ./build/tux-control*.deb
+    expire_in: 1d
+
+repoupdate:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh www-data@repository 'rm -rf /var/www/repository.salamek.cz/cache/deb/pub/all/tux-control-frontend*.deb'
+    - scp build/*.deb www-data@repository:/var/www/repository.salamek.cz/cache/deb/pub/all
+    - ssh www-data@repository '/var/www/repository.salamek.cz/deb-pub-update.sh'
+  dependencies:
+    - package:debian
+  tags:
+    - docker
+  only:
+    - tags
