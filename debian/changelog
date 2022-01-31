@@ -1,0 +1,12 @@
+granad-frontend (0.0.2) unstable; urgency=medium
+
+  * Fixes
+    * CI
+      * ad3d698 Correct output dir
+      * 9380102 ng -> ng.js
+  * Features
+    * i18n
+      * da56ac6 Localize
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Mon, 31 Jan 2022 16:56:13 +0000
+
