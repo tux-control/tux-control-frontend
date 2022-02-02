@@ -1,3 +1,11 @@
+tux-control-frontend (0.0.5) unstable; urgency=medium
+
+  * Fixes
+    * Nginx
+      * b6bf763 Fix nginx root path
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Wed, 02 Feb 2022 10:56:42 +0000
+
 tux-control-frontend (0.0.4) unstable; urgency=medium
 
   * Fixes
