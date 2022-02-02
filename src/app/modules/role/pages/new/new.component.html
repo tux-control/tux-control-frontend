@@ -29,7 +29,7 @@
             <div class="col-lg-4 col-md-9 col-sm-12 p-fluid">
               <p-listbox [options]="permissions" formControlName="permissions" [metaKeySelection]="false" [checkbox]="true" [filter]="true" [multiple]="true" optionLabel="name" [ngClass]="{ 'is-invalid': !rf.permissions.untouched && rf.permissions.errors }"></p-listbox>
               <div *ngIf="rf.permissions.errors" class="invalid-feedback">
-                <div *ngIf="!rf.permissions.untouched && rf.permissions.errors.required" i18n>Permissions are reqired.</div>
+                <div *ngIf="!rf.permissions.untouched && rf.permissions.errors.required" i18n>Permissions are required.</div>
               </div>
             </div>
           </div>
