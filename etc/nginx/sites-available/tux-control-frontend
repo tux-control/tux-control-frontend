@@ -8,11 +8,11 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	root /usr/lib/tux-frontend;
+	root /usr/lib/tux-control-frontend;
 
 	index index.html;
 
-	server_name tux-frontend;
+	server_name tux-control-frontend;
 
 
 	if ($accept_language ~ "^$") {
