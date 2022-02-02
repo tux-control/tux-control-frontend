@@ -1,5 +1,5 @@
 pkgname=tux-frontend
-pkgver=0.0.2
+pkgver=0.0.3
 pkgdesc="Tux Frontend."
 pkgrel=1
 arch=('any')
