@@ -1,3 +1,11 @@
+tux-control-frontend (0.0.4) unstable; urgency=medium
+
+  * Fixes
+    * Config
+      * 5b7842b Fix filenames
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Wed, 02 Feb 2022 09:42:13 +0000
+
 tux-control-frontend (0.0.3) unstable; urgency=medium
 
   * Fixes
