@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: tux-frontend
+Upstream-Name: tux-control-frontend
 Source: <url://example.com>
 
 Files: *

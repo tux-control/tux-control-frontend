@@ -1,5 +1,5 @@
 #!/bin/sh
-# preinst script for tux-frontend
+# preinst script for tux-control-frontend
 #
 # see: dh_installdeb(1)
 

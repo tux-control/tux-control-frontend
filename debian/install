@@ -1,2 +1,2 @@
-./dist/tux-frontend/* usr/lib/tux-frontend
+./dist/tux-control-frontend/* usr/lib/tux-control-frontend
 ./etc/* etc

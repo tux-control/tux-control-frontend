@@ -1,4 +1,4 @@
-tux-frontend (0.0.2) unstable; urgency=medium
+tux-control-frontend (0.0.2) unstable; urgency=medium
 
   * Fixes
     * CI

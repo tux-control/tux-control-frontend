@@ -1,5 +1,5 @@
 #!/bin/sh
-# postrm script for tux-frontend
+# postrm script for tux-control-frontend
 #
 # see: dh_installdeb(1)
 

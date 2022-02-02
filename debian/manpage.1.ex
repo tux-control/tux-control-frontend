@@ -4,7 +4,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH tux-frontend SECTION "October 22 2019"
+.TH tux-control-frontend SECTION "October 22 2019"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -18,16 +18,16 @@
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
 .SH NAME
-tux-frontend \- program to do something
+tux-control-frontend \- program to do something
 .SH SYNOPSIS
-.B tux-frontend
+.B tux-control-frontend
 .RI [ options ] " files" ...
 .br
 .B bar
 .RI [ options ] " files" ...
 .SH DESCRIPTION
 This manual page documents briefly the
-.B tux-frontend
+.B tux-control-frontend
 and
 .B bar
 commands.

@@ -56,9 +56,9 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhsection   "SECTION">
   <!-- TITLE should be something like "User commands" or similar (see
        http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
-  <!ENTITY dhtitle     "tux-frontend User Manual">
+  <!ENTITY dhtitle     "tux-control-frontend User Manual">
   <!ENTITY dhucpackage "tux Frontend">
-  <!ENTITY dhpackage   "tux-frontend">
+  <!ENTITY dhpackage   "tux-control-frontend">
 ]>
 
 <refentry>

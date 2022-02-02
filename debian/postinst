@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for tux-frontend
+# postinst script for tux-control-frontend
 #
 # see: dh_installdeb(1)
 
@@ -21,7 +21,7 @@ set -e
 case "$1" in
     configure)
         if [ -z "$2" ]; then
-            ln -sf /etc/tux-frontend/config.json /usr/lib/tux-frontend/config/config.production.json
+            ln -sf /etc/tux-control-frontend/config.json /usr/lib/tux-control-frontend/config/config.production.json
             if ! systemctl is-enabled --quiet nginx; then
                 systemctl enable nginx
             fi
@@ -30,7 +30,7 @@ case "$1" in
                 systemctl restart nginx
             fi
         else
-            ln -sf /etc/tux-frontend/config.json /usr/lib/tux-frontend/config/config.production.json
+            ln -sf /etc/tux-control-frontend/config.json /usr/lib/tux-control-frontend/config/config.production.json
             systemctl restart nginx
         fi
     ;;

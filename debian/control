@@ -1,14 +1,14 @@
-Source: tux-frontend
+Source: tux-control-frontend
 Section: unknown
 Priority: optional
 Maintainer: Adam Schubert <adam.schubert@sg1-game.net>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.8
 Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: https://anonscm.debian.org/collab-maint/tux-frontend.git
-#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/tux-frontend.git
+#Vcs-Git: https://anonscm.debian.org/collab-maint/tux-control-frontend.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/tux-control-frontend.git
 
-Package: tux-frontend
+Package: tux-control-frontend
 Architecture: all
 Depends: ${misc:Depends}, nginx
 Description: <insert up to 60 chars description>
