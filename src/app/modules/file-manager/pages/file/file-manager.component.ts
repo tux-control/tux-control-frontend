@@ -43,7 +43,8 @@ export class FileManagerComponent implements OnInit, OnDestroy {
   videoPlayableMimeTypes: string[] = [
     'video/mp4',
     'video/webm',
-    'video/ogg'
+    'video/ogg',
+    'audio/mpeg',
   ]
   @ViewChild('primeFileUpload') primeFileUpload!: FileUpload;
   breadcrumbs!: MenuItem[];
