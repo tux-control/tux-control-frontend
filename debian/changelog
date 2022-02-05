@@ -1,3 +1,13 @@
+tux-control-frontend (0.0.6) unstable; urgency=medium
+
+  * Features
+    * FileManger
+      * 534084c Add audio/mpeg as playable
+    * FileManager
+      * 54ded25 Implemented file manager
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Sat, 05 Feb 2022 07:00:15 +0000
+
 tux-control-frontend (0.0.5) unstable; urgency=medium
 
   * Fixes
