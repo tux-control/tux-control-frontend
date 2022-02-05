@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AppConfigModule } from '@app/app-config.module';
 import { LazyLoadEvent } from 'primeng/api';
 import { snakeCase, camelCase } from 'voca';
 
@@ -6,7 +7,10 @@ import { snakeCase, camelCase } from 'voca';
   providedIn: 'root'
 })
 export class ApiService {
-  constructor() {}
+  public baseUrl: string;
+  constructor(private appConfigModule: AppConfigModule) {
+    this.baseUrl = this.appConfigModule.config.apiEndpoint;
+  }
 
   static camelCaseToSnakeCase(input: string): string {
     return snakeCase(input);

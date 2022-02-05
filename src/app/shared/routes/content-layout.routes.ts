@@ -20,5 +20,9 @@ export const CONTENT_ROUTES: Routes = [
   {
     path: 'role',
     loadChildren: () => import('../../modules/role/role.module').then(m => m.RoleModule)
+  },
+  {
+    path: 'file-manager',
+    loadChildren: () => import('../../modules/file-manager/file-manager.module').then(m => m.FileManagerModule)
   }
 ];

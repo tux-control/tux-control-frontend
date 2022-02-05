@@ -1,4 +1,4 @@
 {
-  "socketioEndpoint": "http://CURRENT_HOSTNAME:8080/",
-  "apiEndpoint": "http://CURRENT_HOSTNAME:8080/"
+  "socketioEndpoint": "http://CURRENT_HOSTNAME:8051/",
+  "apiEndpoint": "http://CURRENT_HOSTNAME:8051/"
 }

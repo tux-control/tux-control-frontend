@@ -15,6 +15,7 @@ import { MessagesModule } from 'primeng/messages';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
+import { GalleriaModule } from 'primeng/galleria';
 import { TagModule } from 'primeng/tag';
 import { InputMaskModule } from 'primeng/inputmask';
 import { SliderModule } from 'primeng/slider';
@@ -31,15 +32,18 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DividerModule } from 'primeng/divider';
 import { ChipsModule } from 'primeng/chips';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { DataViewModule } from 'primeng/dataview';
 
 
 import { OrganizationChartModule } from 'primeng/organizationchart';
 import { CalendarLocaleDirective } from '@app/core/directives/calendar.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { ByteFormatterPipe } from '@app/core/pipes/byte-formatter.pipe';
+import { FormatBytesPipe } from '@app/core/pipes/format-bytes.pipe';
 import { GravatarPipe } from '@app/core/pipes/gravatar.pipe';
 import { HasPermissionPipe } from '@app/core/pipes/has-permission.pipe';
+import { ShortTextPipe } from '@app/core/pipes/short-text.pipe';
 
 
 @NgModule({
@@ -56,9 +60,10 @@ import { HasPermissionPipe } from '@app/core/pipes/has-permission.pipe';
     ],
     declarations: [
       CalendarLocaleDirective,
-      ByteFormatterPipe,
+      FormatBytesPipe,
       GravatarPipe,
-      HasPermissionPipe
+      HasPermissionPipe,
+      ShortTextPipe
     ],
     exports: [
       CommonModule,
@@ -93,12 +98,16 @@ import { HasPermissionPipe } from '@app/core/pipes/has-permission.pipe';
       DividerModule,
       SliderModule,
       ListboxModule,
+      GalleriaModule,
       TagModule,
+      BreadcrumbModule,
+      DataViewModule,
       CalendarLocaleDirective,
       FontAwesomeModule,
-      ByteFormatterPipe,
+      FormatBytesPipe,
       GravatarPipe,
       HasPermissionPipe,
+      ShortTextPipe
     ],
     entryComponents: [
     ]

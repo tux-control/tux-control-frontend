@@ -1,0 +1,177 @@
+<!-- begin:: Content -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title" i18n>Files</h4>
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <p-fileUpload *ngIf="(['file.edit'] | hasPermission) && isFileWrite(selectedDirectory)" #primeFileUpload [customUpload]="true" (uploadHandler)="chunkedFileUploader($event)" (onProgress)="progressReport($event)"
+      i18n-chooseLabel chooseLabel="Select" i18n-uploadLabel uploadLabel="Upload" i18n-cancelLabel cancelLabel="Cancel" [multiple]="true" (onSelect)="onFileUploadSelect($event)">
+      <ng-template pTemplate="content">
+          <ul *ngIf="uploadedFiles.length">
+              <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+          </ul>
+      </ng-template>
+    </p-fileUpload>
+        <p-dataView #dv [value]="fileManagerItems" [layout]="dataViewLayout" [loading]="fileManagerLoading" (onChangeLayout)="onLayoutChange($event.layout)">
+            <ng-template pTemplate="header">
+                <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                    <div>
+                      <button *ngIf="(['file.edit'] | hasPermission) && isFileWrite(selectedDirectory)" pButton pRipple type="button" icon="pi pi-folder" (click)="showDialogToAddFile()" i18n-label label="Create folder" class="p-button-primary p-mr-1"></button>
+                    </div>
+                    <span class="p-input-icon-left p-mb-2 p-mb-md-0 p-ml-1 p-mr-1 p-fluid" style="flex-grow: 1;">
+                      <i class="pi pi-search"></i>
+                      <input type="search" pInputText i18n-placeholder placeholder="Search by Name" (input)="onSearch($any($event).target?.value)">
+                    </span>
+                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" i18n-placeholder placeholder="Sort" (onChange)="onSortChange()" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+                <p-breadcrumb [model]="breadcrumbs" [home]="homeBreadrumb"></p-breadcrumb>
+            </ng-template>
+            <ng-template let-fileManagerItem pTemplate="listItem">
+                <div class="p-col-12">
+                    <a class="file-manager-list-item" [routerLink]="fileManagerItem.routerLink" (click)="fileManagerItem.onClick ? fileManagerItem.onClick($event): null">
+                        <div class="image-holder" (click)="fileManagerItem.onClickThumbnail ? fileManagerItem.onClickThumbnail($event): null;">
+                          <img [src]="fileManagerItem.image" [alt]="fileManagerItem.file.name" style="height: 32px; max-width: 100%;" />
+                        </div>
+                        <div class="file-manager-list-detail">
+                          <div class="file-manager-name p-pl-2" [innerHtml]="fileManagerItem.file.name"></div>
+                        </div>
+                        <div class="file-manager-list-updated">
+                          <div class="file-manager-name p-pr-2" [innerHtml]="fileManagerItem.file.updated|date:'short'"></div>
+                        </div>
+                        <!--div class="file-manager-list-created">
+                          <div class="file-manager-name p-pl-2" [innerHtml]="fileManagerItem.created|date:'short'"></div>
+                        </div-->
+                        <div class="file-manager-list-controls">
+                          <button *ngIf="fileManagerItem.onInfo" pButton pRipple type="button" i18n-title title="Info" icon="pi pi-info" class="p-button-outlined p-button-rounded p-button-info p-ml-1" (click)="fileManagerItem.onInfo(); $event.preventDefault(); $event.stopPropagation();"></button>
+                          <button *ngIf="fileManagerItem.onDownload" pButton pRipple type="button" i18n-title title="Download" icon="pi pi-download" class="p-button-outlined p-button-rounded p-button-success p-ml-1" (click)="fileManagerItem.onDownload(); $event.preventDefault(); $event.stopPropagation();"></button>
+                          <button *ngIf="fileManagerItem.onEdit" pButton pRipple type="button" i18n-title title="Rename" icon="pi pi-pencil" class="p-button-outlined p-button-rounded p-button-warning p-ml-1" (click)="fileManagerItem.onEdit(); $event.preventDefault(); $event.stopPropagation();"></button>
+                          <button *ngIf="fileManagerItem.onDelete" pButton pRipple type="button" i18n-title title="Delete" icon="pi pi-trash" class="p-button-outlined p-button-rounded p-button-danger p-ml-1" (click)="fileManagerItem.onDelete(); $event.preventDefault(); $event.stopPropagation();"></button>
+                        </div>
+                    </a>
+                </div>
+            </ng-template>
+            <ng-template let-fileManagerItem pTemplate="gridItem">
+                <div class="p-col-12 p-md-1">
+                    <a class="file-manager-grid-item" [routerLink]="fileManagerItem.routerLink" (click)="fileManagerItem.onClick ? fileManagerItem.onClick($event): null">
+                        <div class="file-manager-grid-item-content">
+                            <img [src]="fileManagerItem.image" [alt]="fileManagerItem.name" (click)="fileManagerItem.onClickThumbnail ? fileManagerItem.onClickThumbnail($event): null;"/>
+                            <div class="box" [ngClass]="{'has-controls': fileManagerItem.hasControls}">
+                              <h4>
+                                <span class="file-manager-name" [innerHtml]="fileManagerItem.file.name|shortText"></span>
+                              </h4>
+                            </div>
+                            <div *ngIf="fileManagerItem.hasControls" class="controls">
+                                <a href="#" *ngIf="fileManagerItem.onInfo" class="p-text-primary" i18n-title title="Info" (click)="fileManagerItem.onInfo(); $event.preventDefault(); $event.stopPropagation();"><fa-icon [icon]="faInfo"></fa-icon></a>
+                                <a href="#" *ngIf="fileManagerItem.onDownload" class="p-text-success" i18n-title title="Download" (click)="fileManagerItem.onDownload(); $event.preventDefault(); $event.stopPropagation();"><fa-icon [icon]="faDownload"></fa-icon></a>
+                                <a href="#" *ngIf="fileManagerItem.onEdit" class="p-text-warning" i18n-title title="Rename" (click)="fileManagerItem.onEdit(); $event.preventDefault(); $event.stopPropagation();"><fa-icon [icon]="faPen"></fa-icon></a>
+                                <a href="#" *ngIf="fileManagerItem.onDelete" class="p-text-danger" i18n-title title="Delete" (click)="fileManagerItem.onDelete(); $event.preventDefault(); $event.stopPropagation();"><fa-icon [icon]="faTrash"></fa-icon></a>
+                            </div>
+                        </div>
+                      </a>
+                </div>
+            </ng-template>
+        </p-dataView>
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->
+
+
+<p-dialog i18n-header header="File" [(visible)]="displayFileModifyDialog" [responsive]="true" showEffect="fade"
+  [modal]="true" [style]="{width: '80%', 'max-width': '800px'}">
+  <form [formGroup]="fileFormGroup" (ngSubmit)="onSubmitFileForm()">
+    <div class="p-grid p-formgrid p-fluid">
+      <div class="p-col-12 p-md-12">
+        <label for="name" i18n>Name</label>
+        <input pInputText type="text" formControlName="name" autocomplete="new-name"
+          [ngClass]="{ 'is-invalid': !ffg.name.untouched && ffg.name.errors }" />
+        <div *ngIf="ffg.name.errors" class="invalid-feedback">
+          <div *ngIf="!ffg.name.untouched && ffg.name.errors.required" i18n>Name is required.</div>
+          <div *ngIf="ffg.name.errors.nameExists" i18n>Name you have provided already exists.</div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="fileFormGroup.invalid" (click)="onSubmitFileForm()"
+      class="p-button-success p-ripple p-button p-component" role="button">
+      <span class="p-button-label" i18n>Save</span>
+    </button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog i18n-header header="File info" [(visible)]="displayFileInfoDialog" [responsive]="true" showEffect="fade"
+  [modal]="true" [style]="{width: '80%', 'max-width': '800px'}">
+  <div *ngIf="fileInfo">
+    <div class="row">
+        <div class="col-sm-12">
+            <img [alt]="fileInfo.name" class="p-d-block p-mx-auto" [src]="getFileThumbnail(fileInfo)">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <strong i18n>Name</strong>
+        </div>
+        <div class="col-sm-6">
+            {{fileInfo.name}}
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-6">
+            <strong i18n>Type</strong>
+        </div>
+        <div class="col-sm-6" *ngIf="fileInfo.isFile">
+            <strong>{{fileInfo.mimeType}}</strong> ({{fileInfo.suffix}})
+        </div>
+        <div class="col-sm-6" *ngIf="fileInfo.isDir">
+          <strong>Directory</strong>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <strong i18n>Size</strong>
+        </div>
+        <div class="col-sm-6">
+          {{fileInfo.size|formatBytes}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <strong i18n>Created</strong>
+        </div>
+        <div class="col-sm-6">
+          {{fileInfo.created|date:'short'}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <strong i18n>Updated</strong>
+        </div>
+        <div class="col-sm-6">
+          {{fileInfo.updated|date:'short'}}
+        </div>
+    </div>
+  </div>
+</p-dialog>
+
+
+<p-galleria [value]="fileManagerItems" [(visible)]="displayFilePreview" [(activeIndex)]="previewActiveIndex" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '50%'}" [numVisible]="7"
+    [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
+    <ng-template pTemplate="item" let-item>
+      <video *ngIf="videoPlayableMimeTypes.includes(item.file.mimeType); else notPlayable" style="max-height: 90vh;" controls autoplay>
+        <source [src]="getFileUrl(item.file)" [type]="item.file.mimeType">
+      </video>
+      <ng-template #notPlayable>
+        <img [alt]="item.name" class="original" [src]="getFileThumbnailUrl(item.file, '1024x')" style="max-height: 90vh;">
+      </ng-template>
+    </ng-template>
+</p-galleria>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
