@@ -10,7 +10,7 @@
                   <a [routerLink]="['/dashboard']"><i><fa-icon [icon]="faHome"></fa-icon></i><span i18n>Home</span></a>
               </li>
               <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
-                <a [routerLink]="['/file-manager']"><i><fa-icon [icon]="faFileArchive"></fa-icon></i><span i18n>File manager</span></a>
+                <a [routerLink]="['/file-manager']"><i><fa-icon [icon]="faArchive"></fa-icon></i><span i18n>File manager</span></a>
             </li>
               <li *ngFor="let menuItem of menuItems" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active mm-active">
                   <a [routerLink]="menuItem.routerLink"><i><fa-icon *ngIf="menuItem.icon" [icon]="iconStringToIcon(menuItem.icon)"></fa-icon></i><span>{{menuItem.label}}</span></a>

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { fas, faHome, faHeart, faUsers, faCog, faFileArchive } from '@fortawesome/free-solid-svg-icons';
+import { fas, faHome, faHeart, faUsers, faCog, faArchive } from '@fortawesome/free-solid-svg-icons';
 import { icon, library, IconName, Icon } from '@fortawesome/fontawesome-svg-core';
 import { AuthorizedUser } from '@app/core/models/authorized-user';
 import { AuthenticationService } from '@app/core/services/authentication.service';
@@ -28,7 +28,7 @@ export class ContentLayoutComponent implements OnInit, OnDestroy {
   faHeart = faHeart;
   faUsers = faUsers;
   faCog = faCog;
-  faFileArchive = faFileArchive;
+  faArchive = faArchive;
 
   constructor(
     private authenticationService: AuthenticationService,
