@@ -1,3 +1,15 @@
+tux-control-frontend (0.0.7) unstable; urgency=medium
+
+  * Features
+    * Plugin
+      * b37b151 Added file picker input
+    * FileManger
+      * 5b2f3d5 better icon
+    * FileManager
+      * 614333d File selector input implemented
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Mon, 07 Feb 2022 09:16:14 +0000
+
 tux-control-frontend (0.0.6) unstable; urgency=medium
 
   * Features
