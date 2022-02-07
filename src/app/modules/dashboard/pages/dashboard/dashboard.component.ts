@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { AlertService } from '@app/core/services/alert.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { FileInfo } from '@app/core/models/file-info';
 
 
 @Component({
@@ -12,14 +13,15 @@ import { AlertService } from '@app/core/services/alert.service';
 export class DashboardComponent implements OnInit, OnDestroy {
   private componentDestroyed$: Subject<boolean> = new Subject();
   
-
   constructor(
     private alertService: AlertService,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit() {
    
   }
+
 
   ngOnDestroy() {
     this.componentDestroyed$.next();

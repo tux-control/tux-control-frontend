@@ -1,0 +1,16 @@
+<!-- begin:: Content -->
+<app-file-list [fileItems]="fileManagerItems" 
+[loading]="fileManagerLoading" 
+[selectedFileItem]="selectedFile"
+[parentFileItem]="parentFileItem"
+[defaultParentFileItem]="defaultParentFileItem"
+[onGetThumbnailUrl]="getFileThumbnail"
+ (onLazyLoad)="onLazyLoad($event)"
+ (onClick)="onClick($event)"
+ >
+ <ng-template pTemplate="buttons">
+    <button pButton pRipple type="button" [disabled]="selectedFile ? false : true" icon="pi pi-check" (click)="onItemSelected()" i18n-label label="OK" class="p-button-primary p-mr-1"></button>
+  </ng-template>
+</app-file-list>
+<!--end row-->
+

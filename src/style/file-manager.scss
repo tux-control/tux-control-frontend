@@ -1,4 +1,4 @@
-/*:host ::ng-deep {
+.file-manager {
     .p-dropdown {
         width: 14rem;
         font-weight: normal;
@@ -17,7 +17,7 @@
         .image-holder {
             width: 32px;
         }
-
+    
         img {
             width: 150px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -27,18 +27,25 @@
         .file-manager-list-detail {
             flex: 1 1 0;
         }
-
+    
+        &.selected {
+            background-color: #cacadb;
+        }
     }
     
     .file-manager-grid-item {
         margin: .5em;
         border: 1px solid #dee2e6;
         display: block;
+    
+        &.selected {
+            border-color: blue;
+        }
 
         .file-manager-grid-item-content {
             text-align: center;
             position: relative;
-
+    
             img {
                 max-height: 100%;
                 max-width: 100%;
@@ -57,9 +64,8 @@
                 position: relative;
                 border: none;
                 box-shadow: none;
-                z-index: 100;
                 height: 34px;
-
+    
                 h4 {
                     font-size: 12px;
                     font-weight: 200;
@@ -70,17 +76,17 @@
                     line-height: 36px;
                 }
             }
-
+    
             &:hover {
                 .box.has-controls {
                     top: -26px;
                 }
             }
-
+    
             .controls {
                 text-align: center;
                 padding: 2px;
-                padding-top: 8px;
+                padding-top: 3px;
                 color: #fff;
                 height: 30px;
                 width: 100%;
@@ -90,50 +96,19 @@
                 top: auto;
                 bottom: 0;
                 box-shadow: inset 0 0 8px 0 rgba(41,41,41,0.5);
+                overflow: hidden;
     
-                a {
-                  padding-left: 2px;
-                  padding-right: 2px;
+                button {
+                    height: 20px;
+                    width: 20px;
+
+                    .p-button-icon{
+                        font-size: 11px;
+                    }
+                    
                 }
             }
         }
-
-       
-
-        
-    
     }
-}*/
-/*
-@media screen and (max-width: 576px) {
-	:host ::ng-deep .file-manager-list-item {
-		flex-direction: column;
-		align-items: center;
+}
 
-		img {
-			width: 75%;
-			margin: 2rem 0;
-		}
-
-		.file-manager-list-detail {
-			text-align: center;
-		}
-
-		.file-manager-price {
-			align-self: center;
-		}
-
-		.file-manager-list-action {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.file-manager-list-action {
-			margin-top: 2rem;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			width: 100%;
-		}
-	}
-}*/

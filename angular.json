@@ -31,6 +31,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "sourceMap": {
+              "scripts": true,
+              "styles": false,
+              "hidden": false,
+              "vendor": false
+            },
             "assets": [
               "src/assets",
               "src/config"

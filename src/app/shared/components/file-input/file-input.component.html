@@ -1,0 +1,6 @@
+<div class="p-inputgroup">
+  <input #input pInputText class="app-file-input" [attr.id]="inputId" type="text" [attr.name]="name" [attr.placeholder]="placeholder" [attr.title]="title"
+[attr.autocomplete]="autocomplete" [attr.tabindex]="tabindex" [disabled]="disabled" [attr.required]="required" (blur)="onInputBlur($event)"
+(input)="onInputChange($event)" (paste)="handleInputChange($event)">
+  <button type="button" pButton pRipple [label]="title" (click)="onButtonClick($event)"></button>      
+</div>

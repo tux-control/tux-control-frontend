@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-12 file-manager">
+        <p-dataView #dv [value]="fileItems" [layout]="dataViewLayout" [loading]="loading" (onChangeLayout)="onLayoutChange($event.layout)">
+            <ng-template pTemplate="header">
+                <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                  <ng-container *ngTemplateOutlet="buttonsTemplate"></ng-container>
+                    <span class="p-input-icon-left p-mb-2 p-mb-md-0 p-ml-1 p-mr-1 p-fluid" style="flex-grow: 1;">
+                      <i class="pi pi-search"></i>
+                      <input type="search" [(ngModel)]="searchValue" pInputText i18n-placeholder placeholder="Search by Name" (input)="onSearch($any($event).target?.value)">
+                    </span>
+                    <p-dropdown [(ngModel)]="sortKey" [options]="sortOptions" i18n-placeholder placeholder="Sort" (onChange)="onSortChange()" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+                <p-breadcrumb [model]="breadcrumbs" [home]="homeBreadrumb"></p-breadcrumb>
+            </ng-template>
+            <ng-template let-fileListItem pTemplate="listItem">
+                <div class="p-col-12">
+                    <a class="file-manager-list-item" (click)="onFileManagerItemClick(fileListItem)" [ngClass]="{'selected': selectedFileItem === fileListItem}">
+                        <div class="image-holder">
+                          <img [src]="onGetThumbnailUrl(fileListItem)" [alt]="fileListItem.name" style="height: 32px; max-width: 100%;" />
+                        </div>
+                        <div class="file-manager-list-detail">
+                          <div class="file-manager-name p-pl-2" [innerHtml]="fileListItem.name"></div>
+                        </div>
+                        <div class="file-manager-list-updated">
+                          <div class="file-manager-name p-pr-2" [innerHtml]="fileListItem.updated|date:'short'"></div>
+                        </div>
+                        <div class="file-manager-list-controls">
+                          <ng-container *ngTemplateOutlet="itemButtonsTemplate; context: {$implicit: fileListItem}"></ng-container>
+                        </div>
+                    </a>
+                </div>
+            </ng-template>
+            <ng-template let-fileListItem pTemplate="gridItem">
+                <div class="p-col-12 p-md-1">
+                    <a class="file-manager-grid-item" (click)="onFileManagerItemClick(fileListItem)" [ngClass]="{'selected': selectedFileItem === fileListItem}">
+                        <div class="file-manager-grid-item-content">
+                            <img [src]="onGetThumbnailUrl(fileListItem)" [alt]="fileListItem.name" />
+                            <div class="box" [ngClass]="{'has-controls': itemButtonsTemplate}">
+                              <h4>
+                                <span class="file-manager-name" [innerHtml]="fileListItem.name"></span>
+                              </h4>
+                            </div>
+                            <div class="controls">
+                              <ng-container *ngTemplateOutlet="itemButtonsTemplate; context: {$implicit: fileListItem}"></ng-container>
+                            </div>
+                        </div>
+                      </a>
+                </div>
+            </ng-template>
+        </p-dataView>
+  </div>
+  <!--end col-->
+</div>
+<!--end row-->
+

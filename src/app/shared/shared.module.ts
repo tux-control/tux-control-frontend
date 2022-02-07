@@ -21,7 +21,6 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { SliderModule } from 'primeng/slider';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { AccordionModule } from 'primeng/accordion';
 import { TooltipModule } from 'primeng/tooltip';
 import { ButtonModule } from 'primeng/button';
@@ -45,6 +44,10 @@ import { GravatarPipe } from '@app/core/pipes/gravatar.pipe';
 import { HasPermissionPipe } from '@app/core/pipes/has-permission.pipe';
 import { ShortTextPipe } from '@app/core/pipes/short-text.pipe';
 
+import { FileListModule } from './components/file-list/file-list.module';
+import { FilePickerDialogModule } from './components/file-picker-dialog/file-picker-dialog.module';
+import { FileInputModule } from './components/file-input/file-input.module';
+
 
 @NgModule({
     imports: [
@@ -52,11 +55,6 @@ import { ShortTextPipe } from '@app/core/pipes/short-text.pipe';
       FormsModule,
       ReactiveFormsModule,
       RouterModule,
-
-      AutoCompleteModule,
-      DropdownModule,
-      TableModule,
-      ButtonModule
     ],
     declarations: [
       CalendarLocaleDirective,
@@ -88,7 +86,6 @@ import { ShortTextPipe } from '@app/core/pipes/short-text.pipe';
       ToggleButtonModule,
       ButtonModule,
       TooltipModule,
-      DynamicDialogModule,
       FieldsetModule,
       OrganizationChartModule,
       AccordionModule,
@@ -102,12 +99,17 @@ import { ShortTextPipe } from '@app/core/pipes/short-text.pipe';
       TagModule,
       BreadcrumbModule,
       DataViewModule,
+
+      FileListModule,
+      FilePickerDialogModule,
+      FileInputModule,
+
       CalendarLocaleDirective,
       FontAwesomeModule,
       FormatBytesPipe,
       GravatarPipe,
       HasPermissionPipe,
-      ShortTextPipe
+      ShortTextPipe,
     ],
     entryComponents: [
     ]

@@ -74,6 +74,8 @@ export class SentryErrorHandler implements ErrorHandler {
 
     // app
     AppRoutingModule,
+
+    // Primeng
     ToastModule,
     ScrollPanelModule,
     PanelMenuModule,

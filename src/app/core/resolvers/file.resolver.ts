@@ -23,8 +23,6 @@ export class FileResolver implements Resolve<any> {
       return of(null);
     }
 
-    console.log(path);
-
     return new Promise((resolve, reject) => {
       this.fileService.onGet$.pipe(
         first()

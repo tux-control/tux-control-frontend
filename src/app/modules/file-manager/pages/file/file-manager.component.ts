@@ -6,7 +6,7 @@ import { FileInfo } from '@app/core/models/file-info';
 import { faTrash, faPen, faDownload, faInfo, faHome } from '@fortawesome/free-solid-svg-icons';
 
 import { AlertService } from '@app/core/services/alert.service';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { FileService } from '@app/core/services/file.service';
 import { ChunkUploadInfo } from '@app/core/models/chunk-upload-info';
 import { FileUpload } from 'primeng/fileupload';
@@ -14,21 +14,7 @@ import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Table } from 'primeng/table';
 import { ResponseError } from '@app/core/models/response-error';
 import { FileInfoUpdateResponse } from '@app/core/models/file-info-update-response';
-
-
-interface FileManagerItem {
-  file: FileInfo;
-  image: string;
-  hasControls: boolean;
-  routerLink?: string[];
-  onDelete?: () => void;
-  onEdit?: () => void;
-  onDownload?: () => void;
-  onInfo?: () => void;
-  onClick: () => void;
-  onClickThumbnail?: () => void;
-}
-
+import { FileManagerLazyLoadEvent } from '@app/shared/components/file-list/file-list.component';
 
 @Component({
   selector: 'app-file-manager',
@@ -69,7 +55,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
 
   sortOptions!: SelectItem[];
   
-  fileManagerItems!: FileManagerItem[];
+  fileManagerItems!: FileInfo[];
   fileManagerTotalRecords!: number;
 
   fileManagerLazyLoadEvent: LazyLoadEvent = <LazyLoadEvent>{};
@@ -77,6 +63,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
   searchSubject: Subject<string> = new Subject<string>();
 
   selectedDirectory?: FileInfo;
+  defaultDirectory!: FileInfo;
   fileInfo?: FileInfo;
 
 
@@ -104,28 +91,17 @@ export class FileManagerComponent implements OnInit, OnDestroy {
   constructor(
     private fileService: FileService,
     private alertService: AlertService,
+    private router: Router,
     private confirmationService: ConfirmationService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
-    // Load sort from cookie
-    this.sortKey = localStorage.getItem(this.sortLocalStorageName) || 'name';
-    this.dataViewLayout = localStorage.getItem(this.dataViewLayoutLocalStorageName) || 'list';
+    this.defaultDirectory = {...<FileInfo>this.route.snapshot.data.fileInfo};
 
-    this.setSortSettings();
-    this.sortOptions = [
-      { label: $localize`Name descending`, value: '!name' },
-      { label: $localize`Name ascending`, value: 'name' },
-      { label: $localize`Created descending`, value: '!created' },
-      { label: $localize`Created ascending`, value: 'created' },
-      { label: $localize`Updated descending`, value: '!updated' },
-      { label: $localize`Updated ascending`, value: 'updated' }
-    ];
-
-    this.activatedRoute.data.pipe(
+    this.route.data.pipe(
       takeUntil(this.componentDestroyed$)
     ).subscribe((response: Data) => {
       if (response.fileInfo) {
@@ -136,50 +112,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
           this.onDownloadFile(fileInfo);
         }
       }
-
-      if (this.selectedDirectory) {
-        this.breadcrumbs = [];
-        this.selectedDirectory.parents?.reverse().forEach((parentFileInfo: FileInfo) => {
-          this.breadcrumbs.push({
-            label: parentFileInfo.name || 'root',
-            routerLink: ['/file-manager', parentFileInfo.absolute]
-          })
-        });
-
-        this.breadcrumbs.push({
-          label: this.selectedDirectory.name,
-          routerLink: ['/file-manager', this.selectedDirectory.absolute]
-        });
-      }
-
-      this.lazyLoadFileManagerData();
     });
-
-    this.searchSubject.pipe(
-      debounceTime(this.debounce),
-      distinctUntilChanged(),
-      takeUntil(this.componentDestroyed$)
-    )
-      .subscribe(query => {
-        if (query.length >= 2) {
-
-          const filters = this.fileManagerLazyLoadEvent.filters || {};
-          filters['name'] = {
-            value: query,
-            matchMode: 'contains'
-          };
-          this.fileManagerLazyLoadEvent.filters = filters;
-
-          this.lazyLoadFileManagerData();
-        } else if (query.length == 0) {
-          // Reset to orignal state
-          const filters = this.fileManagerLazyLoadEvent.filters || {};
-          delete filters['name'];
-          this.fileManagerLazyLoadEvent.filters = filters;
-
-          this.lazyLoadFileManagerData();
-        }
-      });
 
     this.fileService.onIsFree$.pipe(
       takeUntil(this.componentDestroyed$)
@@ -205,13 +138,13 @@ export class FileManagerComponent implements OnInit, OnDestroy {
 
       let foundIndex;
       if (fileInfoUpdateResponse.oldFileInfo){
-        foundIndex = fileManagerItems.findIndex(x => x.file.absolute === fileInfoUpdateResponse.oldFileInfo.absolute);
+        foundIndex = fileManagerItems.findIndex(x => x.absolute === fileInfoUpdateResponse.oldFileInfo.absolute);
       } else {
         foundIndex = -1;
       }
 
       if (foundIndex == -1) {
-        fileManagerItems.push(this.fileInfoToFileManagerItem(fileInfoUpdateResponse.newFileInfo));
+        fileManagerItems.push(fileInfoUpdateResponse.newFileInfo);
         if (fileInfoUpdateResponse.newFileInfo.isDir) {
           this.alertService.success($localize`Directory has been aded.`, 'OK');
         } else {
@@ -219,7 +152,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
           this.alertService.success($localize`File has been aded.`, 'OK');
         }
       } else {
-        fileManagerItems[foundIndex] = this.fileInfoToFileManagerItem(fileInfoUpdateResponse.newFileInfo);
+        fileManagerItems[foundIndex] = fileInfoUpdateResponse.newFileInfo;
         if (fileInfoUpdateResponse.newFileInfo.isDir) {
           this.alertService.success($localize`Directory was sucessfully modified.`, 'OK');
         } else {
@@ -245,7 +178,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
       takeUntil(this.componentDestroyed$)
     ).subscribe((fileInfo: FileInfo) => {
       this.alertService.success($localize`File has been sucessfully deleted.`, 'OK');
-      const foundIndex = this.fileManagerItems.findIndex(x => x.file.absolute === fileInfo.absolute);
+      const foundIndex = this.fileManagerItems.findIndex(x => x.absolute === fileInfo.absolute);
       this.fileManagerItems = this.fileManagerItems.filter((_, i) => i !== foundIndex);
     });
 
@@ -258,9 +191,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
     this.fileService.onListAll$.pipe(
       takeUntil(this.componentDestroyed$)
     ).subscribe((fileInfos: FileInfo[]) => {
-      this.fileManagerItems = fileInfos.map((fileInfo: FileInfo) => {
-        return this.fileInfoToFileManagerItem(fileInfo);
-      });
+      this.fileManagerItems = fileInfos;
       this.fileManagerLoading = false;
     });
 
@@ -276,12 +207,12 @@ export class FileManagerComponent implements OnInit, OnDestroy {
   }
 
   onDisplayPreview(fileInfo: FileInfo) {
-    const foundIndex = this.fileManagerItems.findIndex(x => x.file.absolute === fileInfo.absolute);
+    const foundIndex = this.fileManagerItems.findIndex(x => x.absolute === fileInfo.absolute);
     this.previewActiveIndex = foundIndex;
     this.displayFilePreview = true;
   }
 
-  getFileThumbnail(fileInfo: FileInfo): string {
+  getFileThumbnail = (fileInfo: FileInfo): string => {
     if (fileInfo.isDir) {
       return 'assets/images/ico/folder.jpg';
     }
@@ -341,7 +272,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
 
   private createFile(fileInfo: FileInfo): void {
     const fileManagerItems = [...this.fileManagerItems];
-    fileManagerItems.push(this.fileInfoToFileManagerItem(fileInfo));
+    fileManagerItems.push(fileInfo);
     this.fileManagerItems = fileManagerItems;
   }
 
@@ -371,7 +302,6 @@ export class FileManagerComponent implements OnInit, OnDestroy {
     this.displayFileModifyDialog = true;
   }
 
-
   showDialogToEditFile(fileInfo: FileInfo) {
     this.displayFileModifyDialog = false;
     this.fileFormLoading = false;
@@ -387,39 +317,17 @@ export class FileManagerComponent implements OnInit, OnDestroy {
     this.displayFileInfoDialog = true;
   }
 
-  lazyLoadFileManagerData() {
+  onLazyLoad(fileManagerlazyLoadEvent: FileManagerLazyLoadEvent) {
     this.fileManagerLoading = true;
-    this.fileService.getFiles(this.fileManagerLazyLoadEvent, this.selectedDirectory);
+    this.fileService.getFiles(fileManagerlazyLoadEvent.lazyLoadEvent, fileManagerlazyLoadEvent.parentFileItem);
   }
 
-  private fileInfoToFileManagerItem(fileInfo: FileInfo): FileManagerItem {
-    const onClick = (fileInfo.isFile ? (event: MouseEvent) => {
-      event.preventDefault(); 
-      event.stopPropagation();
+  onClick(fileInfo: FileInfo) {
+    if (fileInfo.isFile) {
       this.onDisplayPreview(fileInfo);
-    }: undefined);
-
-    const routerLink = (fileInfo.isDir ? ['/file-manager', fileInfo.absolute] : undefined);
-
-    return <FileManagerItem>{
-      file: fileInfo,
-      image: this.getFileThumbnail(fileInfo),
-      hasControls: true,
-      onClick: onClick,
-      routerLink: routerLink,
-      onInfo: () => {
-        this.showFileInfoDialog(fileInfo)
-      },
-      onDownload: () => {
-        this.onDownloadFile(fileInfo)
-      },
-      onDelete: fileInfo.isWritable ? () => {
-        this.onDeleteFile(fileInfo);
-      } : null,
-      onEdit: fileInfo.isWritable ? () => {
-        this.showDialogToEditFile(fileInfo);
-      } : null
-    };
+    } else if (fileInfo.isDir) {
+      this.router.navigate(['/file-manager', fileInfo.absolute]);
+    }
   }
 
   onDeleteFile(fileInfo: FileInfo) {
@@ -430,31 +338,7 @@ export class FileManagerComponent implements OnInit, OnDestroy {
       }
     });
   }
-
-  onSearch(query: string) {
-    this.searchSubject.next(query);
-  }
-
-  setSortSettings() {
-    if (this.sortKey.startsWith('!')) {
-      this.fileManagerLazyLoadEvent.sortField = this.sortKey.replace('!', '');
-      this.fileManagerLazyLoadEvent.sortOrder = -1;
-    } else {
-      this.fileManagerLazyLoadEvent.sortField = this.sortKey;
-      this.fileManagerLazyLoadEvent.sortOrder = 1;
-    }
-  }
-
-  onSortChange() {
-    localStorage.setItem(this.sortLocalStorageName, this.sortKey);
-    this.setSortSettings();
-    this.lazyLoadFileManagerData();
-  }
-
-  onLayoutChange(layout: string) {
-    localStorage.setItem(this.dataViewLayoutLocalStorageName, layout);
-  }
-
+  
   isFileWrite(fileInfo?: FileInfo | null): boolean {
     if (fileInfo && fileInfo.isWritable !== undefined) {
       return fileInfo.isWritable;

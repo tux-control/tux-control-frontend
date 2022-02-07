@@ -16,4 +16,11 @@ export interface FileInfo {
     size: number;
     created: Date;
     updated: Date;
+
+    //!TODO rework this to Control[] ?
+    onDelete?: () => void;
+    onEdit?: () => void;
+    onDownload?: () => void;
+    onInfo?: () => void;
+    onClick?: (event: MouseEvent) => void;
 }
