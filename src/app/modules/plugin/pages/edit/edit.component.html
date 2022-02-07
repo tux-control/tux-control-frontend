@@ -25,6 +25,7 @@
 					  </label>
 					  <div class="col-lg-6 col-md-9 col-sm-12 p-fluid">
 						<ng-container [ngSwitch]="pluginConfigsControl.get('pluginConfigOption')?.value.control.htmlType">
+						  <app-file-input *ngSwitchCase="'file'" [matchMimeTypes]="pluginConfigsControl.get('pluginConfigOption')?.value.control.matchMimeTypes" [pickerType]="pluginConfigsControl.get('pluginConfigOption')?.value.control.pickerType" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></app-file-input>
 						  <p-slider *ngSwitchCase="'slider'" [step]="pluginConfigsControl.get('pluginConfigOption')?.value.control.step" [min]="pluginConfigsControl.get('pluginConfigOption')?.value.control.min" [max]="pluginConfigsControl.get('pluginConfigOption')?.value.control.max" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-slider>
 						  <p-checkbox *ngSwitchCase="'checkbox'" [binary]="true" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-checkbox>
 						  <p-multiSelect *ngSwitchCase="'multiselect'" [options]="pluginConfigsControl.get('pluginConfigOption')?.value.control.options" formControlName="value" [ngClass]="{ 'is-invalid': !pluginConfigsControl.get('value')?.untouched && pluginConfigsControl.get('value')?.errors }"></p-multiSelect>
