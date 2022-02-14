@@ -1,3 +1,11 @@
+tux-control-frontend (0.0.8) unstable; urgency=medium
+
+  * Features
+    * Config
+      * ade4cb8 Set default port to 8052
+
+ -- Adam Schubert <adam.schubert@sg1-game.net>  Mon, 14 Feb 2022 20:05:39 +0000
+
 tux-control-frontend (0.0.7) unstable; urgency=medium
 
   * Features
