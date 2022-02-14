@@ -5,8 +5,8 @@ map $http_accept_language $accept_language {
 
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen 8052 default_server;
+	listen [::]:8052 default_server;
 
 	root /usr/lib/tux-control-frontend;
 
